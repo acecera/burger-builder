@@ -5,7 +5,7 @@ import classes from './BurgerIngredient.css';
 class BurgerIngredient extends Component {
     render() {
         let ingredient = null;
-        
+
         switch(this.props.type) {
             case ('bread-bottom'):
                 ingredient = <div> className={classes.BreadBottom}></div>;
@@ -24,8 +24,8 @@ class BurgerIngredient extends Component {
                 case ('cheese'):
                     ingredient = <div className={classes.Cheese}></div>;
                     break;
-                case ('lettuce'):
-                    ingredient = <div className={classes.Lettuce}></div>;
+                case ('salad'):
+                    ingredient = <div className={classes.Salad}></div>;
                     break;
                 case ('tomato'):
                     ingredient = <div className={classes.Tomato}></div>;
