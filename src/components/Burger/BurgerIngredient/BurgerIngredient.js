@@ -30,6 +30,7 @@ const burgerIngredient = (props) => {
             default:
                 ingredient = null;
     }
+    return ingredient;
 }
 
 export default burgerIngredient;
