@@ -3,16 +3,43 @@ import classes from './Input.css';
 
 const input = (props) => {
     let inputElement = null;
+    const inputClasses = [classes.InputElement];
 
-    switch (props.inputtype) {
+    if(props.invalid && props.shouldValidate) {
+        inputClasses.push(classes.Invalid);
+    }
+
+    switch (props.elementType) {
         case('input'):
-            inputElement = <input className={classes.InputElement} {...props} />;
+            inputElement = <input 
+                className={inputClasses.join(' ')} 
+                {...props.elementConfig} 
+                value={props.value}/>;
             break;
         case ('textarea'):
-            inputElement = <textarea className={classes.InputElement}{...props}/>;
+            inputElement = <textarea 
+                className={classes.InputElement}
+                {...props.elementConfig}
+                value={props.value}/>;
             break;
+        case ('select'):
+            inputElement = (
+                <select
+                    className={classes.InputElement}
+                    value={props.value}
+                    onChange={props.changed}>
+                    {props.elementConfig.options.map(option => (
+                        <option key={option.value} value={option.value}>
+                            {option.displayValue}
+                        </option>
+                    ))}
+                </select>
+            );
         default:
-            inputElement = <input className={classes.InputElement}{...props}/>;
+            inputElement = <input 
+                className={classes.InputElement}
+                {...props.elementConfig}
+                value={props.value}/>;
     }   
     <div className={classes.Input}>
         <label className={classes.Label}>{props.label}</label>
