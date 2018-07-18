@@ -88,7 +88,7 @@ class BurgerBuilder extends Component {
 const mapStateToProps = state => {
     return {
         ings: state.burgerBuilder.ingredients,
-        price: state.totalPrice,
+        price: state.burgerBuilder.totalPrice,
         error: state.burgerBuilder.error
     };
 }
@@ -99,7 +99,7 @@ const mapDispatchToProps = dispatch => {
         onIngredientRemoved: (ingName) => dispatch(actions.removeIngredient(ingName)),
         onInitialIngredients: () => dispatch(actions.initialIngredients()),
         onInitPurchase: () => dispatch(actions.purchaseInitialize())
-    }
-}
+    };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(BurgerBuilder, axios));
