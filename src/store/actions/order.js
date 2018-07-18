@@ -1,0 +1,85 @@
+import * as actionTypes from './actionTypes';
+import axios from '../../axiosOrders';
+
+export const purchaseBurgerSuccess = (id, orderData) => {
+    return {
+        type: actionTypes.PURCHASE_BURGER_SUCCESS,
+        orderID: id, 
+        orderData: orderData
+    };
+};
+
+export const purchaseBurgerFail = (error) => {
+    return {
+        type: actionTypes.PURCHASE_BURGER_FAIL,
+        error: error
+    };
+}
+
+export const purchaseBurgerStart = () => {
+    return {
+        type: actionTypes.PURCHASE_BURGER_START
+    };
+};
+
+export const purchaseBurger = (orderData) => {
+    return dispatch => {
+        dispatch(purchaseBurgerStart());
+        axios.post('/orders.json', orderData) 
+            .then(response => {
+                dispatch(purchaseBurgerSuccess(response.data.name, orderData))
+            })
+            .catch(error => {
+                dispatch(purchaseBurgerFail(error));
+            });
+    };
+};
+
+export const purchaseInitialize = () => {
+    return {
+        type: actionTypes.PURCHASE_INITIALIZE
+    };
+};
+
+export const getOrdersSuccess = (orders) => {
+    return {
+        types: actionTypes.GET_ORDERS_SUCCESS,
+        orders: orders
+    };
+};
+
+export const getOrdersFail = (error) => {
+    return {
+        types: actionTypes.GET_ORDERS_FAIL,
+        error: error
+    };
+};
+
+export const getOrdersStart = () => {
+    return {
+        type: actionTypes.GET_ORDERS_START
+    };
+};
+
+export const getOrders = () => {
+    return dispatch => {
+        dispatch(getOrdersStart());
+        axios.get('/orders.json')
+            .then(res => {
+                 const receivedOrders = [];
+                 for (let key in res.data) {
+                    receivedOrders.push({
+                        ...res.data[key],
+                        id: key
+                    });
+                 }
+                 dispatch(getOrdersSuccess(receivedOrders));
+             })
+            .catch(err => {
+                 dispatch(getOrdersFail(err));
+             });
+    };
+};
+
+
+
