@@ -59,7 +59,7 @@ class BurgerBuilder extends Component {
         let burger = this.props.error ? <p>Ingredients can not be loaded!</p> : <Spinner />;
 
         if(this.props.ings) {
-            burger =  (
+             burger =  (
                 <Aux>
                     <Burger ingredients={this.props.ings} />
                     <BuildControls 
