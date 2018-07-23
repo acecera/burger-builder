@@ -4,7 +4,7 @@
 
 This is a basic Burger Builder Application with ReactJS.
 It includes the use of React's component architecture and layout standard. 
-
+As well as Firebase Authentication/Database
 
 ### What I used?
 
