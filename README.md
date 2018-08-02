@@ -10,7 +10,7 @@ As well as Firebase Authentication/Database
 
 - HTML5
 - CSS3 w/ Mobile First
-- React - Jsx pages
+- React - JSX pages
 - Webpack
 - JavaScript
 - Firebase Authentication/Database
