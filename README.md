@@ -12,7 +12,7 @@ As well as Firebase Authentication/Database
 - CSS3 w/ Mobile First
 - React - Jsx pages
 - Webpack
-- Pure JavaScript
+- JavaScript
 - Firebase Authentication/Database
 
 ## How Can I Start?
