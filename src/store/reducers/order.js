@@ -16,7 +16,7 @@ const purchaseBurgerStart = (state, action) => {
 };
 
 const purchaseBurgerSuccess = (state, action) => {
-    const newOrder = updateObject(action.orderData, {id: action.orderId});
+    const newOrder = updateObject(action.orderData, { id: action.orderId });
     return updateObject(state, {
         loading: false, 
         purchased: true,
@@ -25,11 +25,11 @@ const purchaseBurgerSuccess = (state, action) => {
 };
 
 const purchaseBurgerFail = (state, action) => {
-    return updateObject(state, {loading: false});
+    return updateObject(state, { loading: false });
 };
 
 const getOrdersStart = (state, action) => {
-    return updateObject(state, {loading: true});
+    return updateObject(state, { loading: true });
 };
 
 const getOrdersSuccess = (state, action) => {
@@ -40,7 +40,7 @@ const getOrdersSuccess = (state, action) => {
 };
 
 const getOrdersFail = (state, action) => {
-    return updateObject(state, {loading: false});
+    return updateObject(state, { loading: false });
 };
 
 const reducer = (state = initialState, action) => {
