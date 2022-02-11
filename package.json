@@ -4,7 +4,7 @@
   "homepage": "https://github.com/acecera/burger-builder.git",
   "private": true,
   "dependencies": {
-    "ajv": "^6.5.2",
+    "ajv": "^6.12.3",
     "autoprefixer": "7.1.6",
     "axios": "^0.18.1",
     "babel-core": "6.26.0",
